@@ -81,7 +81,7 @@
 
                         <section>
                             <h4>5 Count — $5</h4>
-                            <button onclick="addToCart('Florida Orange (5 count)', 5)">Add to Cart</button>
+                            <button onclick="buyItem('price_1TNJC7CbJOO0smEfopeDiGRa')">Buy Now</button>
                         </section>
 
                         <section>
@@ -197,13 +197,32 @@
             updateCart();
         }
 
-        // ✅ HAMBURGER MENU (FIXED)
+        //  HAMBURGER MENU
         const btn = document.querySelector(".menu-toggle");
         const nav = document.querySelector("nav ul");
 
         btn.addEventListener("click", () => {
             nav.classList.toggle("active");
         });
+
+        async function buyItem(priceId) {
+                try {
+                    const response = await fetch("http://localhost:4242/create-checkout-session", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({ priceId }),
+                    });
+
+                    const data = await response.json();
+
+                    window.location.href = data.url;
+
+                } catch (error) {
+                    console.error("Error:", error);
+                }
+            }
     </script>
 
 </body>
