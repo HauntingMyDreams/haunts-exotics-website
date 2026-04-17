@@ -16,6 +16,8 @@
     </header>
 
     <nav>
+        <button class="menu-toggle">☰</button>
+
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="shop.html">Shop</a></li>
@@ -154,6 +156,24 @@
         <a href="#top" class="btn back-to-top">Back to Top ↑</a>
         <p>&copy; 2026 Haunts Crawlers | Local pickup only</p>
     </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const btn = document.querySelector(".menu-toggle");
+            const nav = document.querySelector("nav ul");
+
+            if (!btn || !nav) {
+                console.log("Menu elements not found");
+                return;
+            }
+
+            btn.addEventListener("click", function () {
+                nav.classList.toggle("active");
+            });
+
+        });
+    </script>
 
 </body>
 

@@ -15,6 +15,8 @@
     </header>
 
     <nav>
+        <button class="menu-toggle">☰</button>
+
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="shop.html">Shop</a></li>
@@ -35,6 +37,8 @@
             </figure>
         </section>
 
+        <br>
+
         <section class="section">
             <h3>We Want to Hear From You!</h3>
             <p>
@@ -48,6 +52,8 @@
             <header>
                 <h2>Send a Message</h2>
             </header>
+
+            <br>
 
                 <form action="#" method="post">
 
@@ -104,6 +110,8 @@
     <header>
         <h2>Leave a Review</h2>
     </header>
+
+    <br>
 
     <form action="#" method="post">
 
@@ -173,6 +181,8 @@
                     <h2>Local Pickup</h2>
                 </header>
 
+                <br>
+
                 <p><strong>Local pickup only.</strong> No shipping available at this time.</p>
 
                 <p>
@@ -198,6 +208,24 @@
         <a href="#top" class="btn back-to-top">Back to Top ↑</a>
         <p>&copy; 2026 Haunts Crawlers | Local pickup only</p>
     </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const btn = document.querySelector(".menu-toggle");
+            const nav = document.querySelector("nav ul");
+
+            if (!btn || !nav) {
+                console.log("Menu elements not found");
+                return;
+            }
+
+            btn.addEventListener("click", function () {
+                nav.classList.toggle("active");
+            });
+
+        });
+    </script>
 
 </body>
 

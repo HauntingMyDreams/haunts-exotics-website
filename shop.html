@@ -16,6 +16,8 @@
     </header>
 
     <nav>
+        <button class="menu-toggle">☰</button>
+
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="shop.html">Shop</a></li>
@@ -31,17 +33,22 @@
             <header>
                 <h2>Your Cart</h2>
             </header>
-        
+
+            <br>
+
             <p id="empty-message">Your cart is empty.</p>
             <ul id="cart"></ul>
             <p>Total: $<span id="total">0</span></p>
-        
+
             <section class="cart-actions">
                 <header>
                     <h3>Manage Your Cart</h3>
                 </header>
-        
-                <button onclick="clearCart()">Clear Cart</button>
+
+                <button onclick="clearCart()">Clear Cart</button><br>
+
+                <br>
+
                 <a href="checkout.html" class="btn">Checkout</a>
             </section>
         </section>
@@ -54,7 +61,8 @@
                 <h2>Available Isopods</h2>
             </header>
 
-            <!-- PRODUCT LIST -->
+            <br>
+
             <ul class="products-container">
 
                 <!-- PRODUCT 1 -->
@@ -65,32 +73,21 @@
                         </header>
 
                         <figure>
-                            <img src="IMG/isopod_placeholder_500x357.avif" alt="Cubaris murina Florida Orange isopod"
-                                loading="lazy">
+                            <img src="IMG/isopod_placeholder_500x357.avif" alt="Cubaris murina Florida Orange isopod">
                             <figcaption>Bright orange morph</figcaption>
                         </figure>
 
                         <p><small>Local pickup only</small></p>
 
-                    <section>
-                        <header>
+                        <section>
                             <h4>5 Count — $5</h4>
-                        </header>
-                    
-                        <button onclick="addToCart('Cubaris murina Florida Orange (5 count)', 5)">
-                            Add to Cart
-                        </button>
-                    </section>
-                    
-                    <section>
-                        <header>
+                            <button onclick="addToCart('Florida Orange (5 count)', 5)">Add to Cart</button>
+                        </section>
+
+                        <section>
                             <h4>10 Count — $10</h4>
-                        </header>
-                    
-                        <button onclick="addToCart('Cubaris murina Florida Orange (10 count)', 10)">
-                            Add to Cart
-                        </button>
-                    </section>
+                            <button onclick="addToCart('Florida Orange (10 count)', 10)">Add to Cart</button>
+                        </section>
                     </article>
                 </li>
 
@@ -102,33 +99,21 @@
                         </header>
 
                         <figure>
-                            <img src="IMG/isopod_placeholder_500x357.avif" alt="Cubaris murina Glacier isopod"
-                                loading="lazy">
+                            <img src="IMG/isopod_placeholder_500x357.avif" alt="Cubaris murina Glacier isopod">
                             <figcaption>Pale white-blue morph</figcaption>
                         </figure>
 
                         <p><small>Local pickup only</small></p>
 
-                    <section>
-                        <header>
+                        <section>
                             <h4>5 Count — $5</h4>
-                        </header>
-                    
-                        <button onclick="addToCart('Cubaris murina Glacier (5 count)', 5)">
-                            Add to Cart
-                        </button>
-                    </section>
-                    
-                    <section>
-                        <header>
-                            <h4>10 Count — $10</h4>
-                        </header>
-                    
-                        <button onclick="addToCart('Cubaris murina Glacier (10 count)', 10)">
-                            Add to Cart
-                        </button>
-                    </section>
+                            <button onclick="addToCart('Glacier (5 count)', 5)">Add to Cart</button>
+                        </section>
 
+                        <section>
+                            <h4>10 Count — $10</h4>
+                            <button onclick="addToCart('Glacier (10 count)', 10)">Add to Cart</button>
+                        </section>
                     </article>
                 </li>
 
@@ -140,38 +125,25 @@
                         </header>
 
                         <figure>
-                            <img src="IMG/isopod_placeholder_500x357.avif" alt="Armadillidium peraccae isopod"
-                                loading="lazy">
+                            <img src="IMG/isopod_placeholder_500x357.avif" alt="Armadillidium peraccae isopod">
                             <figcaption>Slate-gray to brown</figcaption>
                         </figure>
 
                         <p><small>Local pickup only</small></p>
 
-                    <section>
-                        <header>
+                        <section>
                             <h4>5 Count — $4</h4>
-                        </header>
-                    
-                        <button onclick="addToCart('Armadillidium peraccae (5 count)', 4)">
-                            Add to Cart
-                        </button>
-                    </section>
-                    
-                    <section>
-                        <header>
-                            <h4>10 Count — $8</h4>
-                        </header>
-                    
-                        <button onclick="addToCart('Armadillidium peraccae (10 count)', 8)">
-                            Add to Cart
-                        </button>
-                    </section>
+                            <button onclick="addToCart('Peraccae (5 count)', 4)">Add to Cart</button>
+                        </section>
 
+                        <section>
+                            <h4>10 Count — $8</h4>
+                            <button onclick="addToCart('Peraccae (10 count)', 8)">Add to Cart</button>
+                        </section>
                     </article>
                 </li>
 
             </ul>
-
         </section>
 
     </main>
@@ -181,7 +153,9 @@
         <p>&copy; 2026 Haunts Crawlers | Local pickup only</p>
     </footer>
 
+    <!-- ✅ ALL JAVASCRIPT HERE -->
     <script>
+        // CART SYSTEM
         let cart = [];
         let total = 0;
 
@@ -214,12 +188,7 @@
             }
 
             totalDisplay.textContent = total;
-
-            if (cart.length === 0) {
-                emptyMessage.style.display = "block";
-            } else {
-                emptyMessage.style.display = "none";
-            }
+            emptyMessage.style.display = cart.length === 0 ? "block" : "none";
         }
 
         function clearCart() {
@@ -227,6 +196,14 @@
             total = 0;
             updateCart();
         }
+
+        // ✅ HAMBURGER MENU (FIXED)
+        const btn = document.querySelector(".menu-toggle");
+        const nav = document.querySelector("nav ul");
+
+        btn.addEventListener("click", () => {
+            nav.classList.toggle("active");
+        });
     </script>
 
 </body>

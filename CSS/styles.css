@@ -552,3 +552,48 @@ footer {
     margin-top: 40px;
     box-shadow: 0 0 20px rgba(255, 0, 0, 0.15);
 }
+
+/* ===== MOBILE NAV ===== */
+
+/* Hide button on desktop */
+.menu-toggle {
+    display: none;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+
+    /* Show hamburger */
+    .menu-toggle {
+        display: block;
+        font-size: 28px;
+        background: none;
+        border: none;
+        color: #ff2b2b;
+        margin: 10px auto;
+        cursor: pointer;
+    }
+
+    /* IMPORTANT: override your existing nav styles */
+    nav ul {
+        display: none !important;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    /* Show when active */
+    nav ul.active {
+        display: flex !important;
+    }
+
+    /* Stack items */
+    nav li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    nav a {
+        display: block;
+        padding: 12px;
+    }
+}

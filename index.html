@@ -16,6 +16,8 @@
     </header>
 
     <nav>
+        <button class="menu-toggle">☰</button>
+
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="shop.html">Shop</a></li>
@@ -78,6 +80,8 @@
             <header>
                 <h2>Featured Products</h2>
             </header>
+
+            <br>
 
             <ul class="products-container">
 
@@ -152,6 +156,25 @@
                 <a href="contact.html" class="btn">Leave a Review</a>
             </p>
         </section>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+
+                const btn = document.querySelector(".menu-toggle");
+                const nav = document.querySelector("nav ul");
+
+                if (!btn || !nav) {
+                    console.log("Menu elements not found");
+                    return;
+                }
+
+                btn.addEventListener("click", function () {
+                    console.log("clicked");
+                    nav.classList.toggle("active");
+                });
+
+            });
+        </script>
 
     </main>
 
