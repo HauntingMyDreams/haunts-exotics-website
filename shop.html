@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Shop | Haunts Crawlers</title>
+    <link rel="stylesheet" href="CSS/styles.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Shop</h1>
+        <p><strong>Local pickup only.</strong> No shipping available at this time.</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="care.html">Care Info</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <main>
+    
+        <h2>Your Cart</h2>
+    
+        <p id="empty-message">Your cart is empty.</p>
+    
+        <ul id="cart"></ul>
+    
+        <p>Total: $<span id="total">0</span></p>
+
+        <section class="cart-actions">
+            <button onclick="clearCart()">Clear Cart</button>
+            <button>Checkout</button>
+        </section>
+
+        <article class="card">
+            <img src="IMG/isopod_placeholder_500x357.avif" alt="isopod" width="500" height="357">
+            <h3>Cubaris murina "Florida Orange"</h3>
+            <p>Bright orange morph</p>
+            <p><small>Local pickup only</small></p>
+            <p>$10 / 10 count</p>
+            <button onclick="addToCart('Cubaris murina Florida Orange (10 count)', 10)">Add to Cart</button>
+        </article>
+
+        <article class="card">
+            <img src="IMG/isopod_placeholder_500x357.avif" alt="isopod" width="500" height="357">
+            <h3>Cubaris murina "Glacier"</h3>
+            <p>Pale white-blue morph</p>
+            <p><small>Local pickup only</small></p>
+            <p>$10 / 10 count</p>
+            <button onclick="addToCart('Cubaris murina Glacier (10 count)', 10)">Add to Cart</button>
+        </article>
+
+        <article class="card">
+            <img src="IMG/isopod_placeholder_500x357.avif" alt="isopod" width="500" height="357">
+            <h3>Armadillidium peraccae</h3>
+            <p>Dark slate-gray to brown coloration</p>
+            <p><small>Local pickup only</small></p>
+            <p>$8 / 10 count</p>
+            <button onclick="addToCart('Armadillidium peraccae (10 count)', 8)">Add to Cart</button>
+        </article>
+
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Haunts Crawlers | Local pickup only</p>
+    </footer>
+
+    <script>
+        let cart = [];
+        let total = 0;
+
+        function addToCart(name, price) {
+            cart.push({ name, price });
+            total += price;
+            updateCart();
+        }
+
+        function removeItem(index) {
+            total -= cart[index].price;
+            cart.splice(index, 1);
+            updateCart();
+        }
+
+        function updateCart() {
+            const cartList = document.getElementById("cart");
+            const totalDisplay = document.getElementById("total");
+            const emptyMessage = document.getElementById("empty-message");
+
+            cartList.innerHTML = "";
+
+            for (let i = 0; i < cart.length; i++) {
+                cartList.innerHTML += `
+            <li>
+                ${cart[i].name} - $${cart[i].price}
+                <button onclick="removeItem(${i})">Remove</button>
+            </li>
+            `;
+            }
+
+            totalDisplay.textContent = total;
+
+            if (cart.length === 0) {
+                emptyMessage.style.display = "block";
+            } else {
+                emptyMessage.style.display = "none";
+            }
+        }
+
+        function clearCart() {
+            cart = [];
+            total = 0;
+            updateCart();
+        }
+    </script>
+
+</body>
+
+</html>
