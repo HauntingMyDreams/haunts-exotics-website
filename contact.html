@@ -98,22 +98,25 @@
 
     <br>
 
-    <form action="#" method="post">
-
+    <form action="https://formspree.io/f/mbdqoyev" method="POST">
+    
+        <!-- Hidden fields -->
+        <input type="hidden" name="_subject" value="New Review Submission">
+        <input type="hidden" name="_replyto" value="">
+        <input type="text" name="_gotcha" style="display:none">
+    
         <fieldset>
             <legend>Your Information</legend>
-
+    
             <p>
                 <label for="review-name">Name: *</label><br>
-                <input type="text" id="review-name" name="review-name" placeholder="Your Name" autocomplete="name"
-                    required>
+                <input type="text" id="review-name" name="name" placeholder="Your Name" required>
             </p>
-
         </fieldset>
-
+    
         <fieldset>
             <legend>Your Review</legend>
-
+    
             <p>
                 <label for="rating">Rating:</label><br>
                 <select id="rating" name="rating">
@@ -125,23 +128,17 @@
                     <option value="1">★☆☆☆☆ - Poor</option>
                 </select>
             </p>
-
+    
             <p>
                 <label for="review-text">Your Review: *</label><br>
-                <textarea id="review-text" name="review-text" rows="4" placeholder="Share your experience..."
+                <textarea id="review-text" name="message" rows="5" placeholder="Share your experience..."
                     required></textarea>
             </p>
-
+    
         </fieldset>
-
-        <p>
-            <small>Your review may be displayed on the site.</small>
-        </p>
-
-        <p id="review-status"></p>
-
+    
         <button type="submit">Submit Review</button>
-
+    
     </form>
 </section>
 
