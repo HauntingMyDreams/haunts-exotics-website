@@ -54,56 +54,20 @@
             </header>
 
             <br>
+<form action="https://formspree.io/f/xqewqbpl" method="POST">
 
-                <form action="#" method="post">
+    <input type="hidden" name="_subject" value="New Contact Message">
+    <input type="text" name="_gotcha" style="display:none">
 
-                    <fieldset>
-                        <legend>Contact Information</legend>
+    <input type="text" name="name" placeholder="Your Name" required>
 
-                        <p>
-                            <label for="name">Name: *</label><br>
-                            <input type="text" id="name" name="name" placeholder="Your Name" autocomplete="name"
-                                required>
-                        </p>
+    <input type="email" name="email" placeholder="Your Email" required>
 
-                        <p>
-                            <label for="email">Email: *</label><br>
-                            <input type="email" id="email" name="email" placeholder="your@email.com"
-                                autocomplete="email" required>
-                        </p>
+    <textarea name="message" placeholder="Your Message" required></textarea>
 
-                        <p>
-                            <label for="phone">Phone Number:</label><br>
-                            <input type="tel" id="phone" name="phone" placeholder="(555) 555-5555" autocomplete="tel">
-                        </p>
+    <button type="submit">Send</button>
 
-                        <p>
-                            <label for="subject">Subject:</label><br>
-                            <input type="text" id="subject" name="subject" placeholder="Order questions, pickup, etc.">
-                        </p>
-
-                    </fieldset>
-
-                    <fieldset>
-                        <legend>Message</legend>
-
-                        <p>
-                            <label for="message">Message: *</label><br>
-                            <textarea id="message" name="message" rows="5" placeholder="How can we help you?"
-                                required></textarea>
-                        </p>
-
-                    </fieldset>
-
-                    <p>
-                        <small>We will never share your information.</small>
-                    </p>
-
-                    <p id="form-status"></p>
-
-                    <button type="submit">Send Message</button>
-
-                </form>
+</form>
             </section>
 
 <section class="section">
