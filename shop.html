@@ -24,47 +24,131 @@
     </nav>
 
     <main>
-    
-        <h2>Your Cart</h2>
-    
-        <p id="empty-message">Your cart is empty.</p>
-    
-        <ul id="cart"></ul>
-    
-        <p>Total: $<span id="total">0</span></p>
 
-        <section class="cart-actions">
-            <button onclick="clearCart()">Clear Cart</button>
-            <button>Checkout</button>
+        <!-- CART -->
+        <section>
+            <header>
+                <h2>Your Cart</h2>
+            </header>
+
+            <p id="empty-message">Your cart is empty.</p>
+            <ul id="cart"></ul>
+            <p>Total: $<span id="total">0</span></p>
+
+            <section class="cart-actions">
+                <button onclick="clearCart()">Clear Cart</button>
+                <button>Checkout</button>
+            </section>
         </section>
 
-        <article class="card">
-            <img src="IMG/isopod_placeholder_500x357.avif" alt="isopod" width="500" height="357">
-            <h3>Cubaris murina "Florida Orange"</h3>
-            <p>Bright orange morph</p>
-            <p><small>Local pickup only</small></p>
-            <p>$10 / 10 count</p>
-            <button onclick="addToCart('Cubaris murina Florida Orange (10 count)', 10)">Add to Cart</button>
-        </article>
+        <!-- PRODUCTS -->
+        <section>
+            <header>
+                <h2>Available Isopods</h2>
+            </header>
 
-        <article class="card">
-            <img src="IMG/isopod_placeholder_500x357.avif" alt="isopod" width="500" height="357">
-            <h3>Cubaris murina "Glacier"</h3>
-            <p>Pale white-blue morph</p>
-            <p><small>Local pickup only</small></p>
-            <p>$10 / 10 count</p>
-            <button onclick="addToCart('Cubaris murina Glacier (10 count)', 10)">Add to Cart</button>
-        </article>
+            <!-- PRODUCT LIST -->
+            <ul class="products-container">
 
-        <article class="card">
-            <img src="IMG/isopod_placeholder_500x357.avif" alt="isopod" width="500" height="357">
-            <h3>Armadillidium peraccae</h3>
-            <p>Dark slate-gray to brown coloration</p>
-            <p><small>Local pickup only</small></p>
-            <p>$8 / 10 count</p>
-            <button onclick="addToCart('Armadillidium peraccae (10 count)', 8)">Add to Cart</button>
-        </article>
+                <!-- PRODUCT 1 -->
+                <li>
+                    <article class="card">
+                        <header>
+                            <h3><em>Cubaris murina</em> "Florida Orange"</h3>
+                        </header>
 
+                        <figure>
+                            <img src="IMG/isopod_placeholder_500x357.avif" alt="Cubaris murina Florida Orange isopod"
+                                loading="lazy">
+                            <figcaption>Bright orange morph</figcaption>
+                        </figure>
+
+                        <p><small>Local pickup only</small></p>
+
+                        <section>
+                            <p><strong>5 Count</strong> — $5</p>
+                            <button onclick="addToCart('Cubaris murina Florida Orange (5 count)', 5)">
+                                Add 5 Count
+                            </button>
+                        </section>
+
+                        <section>
+                            <p><strong>10 Count</strong> — $10</p>
+                            <button onclick="addToCart('Cubaris murina Florida Orange (10 count)', 10)">
+                                Add 10 Count
+                            </button>
+                        </section>
+
+                    </article>
+                </li>
+
+                <!-- PRODUCT 2 -->
+                <li>
+                    <article class="card">
+                        <header>
+                            <h3><em>Cubaris murina</em> "Glacier"</h3>
+                        </header>
+
+                        <figure>
+                            <img src="IMG/isopod_placeholder_500x357.avif" alt="Cubaris murina Glacier isopod"
+                                loading="lazy">
+                            <figcaption>Pale white-blue morph</figcaption>
+                        </figure>
+
+                        <p><small>Local pickup only</small></p>
+
+                        <section>
+                            <p><strong>5 Count</strong> — $5</p>
+                            <button onclick="addToCart('Cubaris murina Glacier (5 count)', 5)">
+                                Add 5 Count
+                            </button>
+                        </section>
+
+                        <section>
+                            <p><strong>10 Count</strong> — $10</p>
+                            <button onclick="addToCart('Cubaris murina Glacier (10 count)', 10)">
+                                Add 10 Count
+                            </button>
+                        </section>
+
+                    </article>
+                </li>
+
+                <!-- PRODUCT 3 -->
+                <li>
+                    <article class="card">
+                        <header>
+                            <h3><em>Armadillidium peraccae</em></h3>
+                        </header>
+
+                        <figure>
+                            <img src="IMG/isopod_placeholder_500x357.avif" alt="Armadillidium peraccae isopod"
+                                loading="lazy">
+                            <figcaption>Dark slate-gray to brown coloration</figcaption>
+                        </figure>
+
+                        <p><small>Local pickup only</small></p>
+
+                        <section>
+                            <p><strong>5 Count</strong> — $4</p>
+                            <button onclick="addToCart('Armadillidium peraccae (5 count)', 4)">
+                                Add 5 Count
+                            </button>
+                        </section>
+
+                        <section>
+                            <p><strong>10 Count</strong> — $8</p>
+                            <button onclick="addToCart('Armadillidium peraccae (10 count)', 8)">
+                                Add 10 Count
+                            </button>
+                        </section>
+
+                    </article>
+                </li>
+
+            </ul>
+
+        </section>
 
     </main>
 
@@ -97,11 +181,11 @@
 
             for (let i = 0; i < cart.length; i++) {
                 cartList.innerHTML += `
-            <li>
-                ${cart[i].name} - $${cart[i].price}
-                <button onclick="removeItem(${i})">Remove</button>
-            </li>
-            `;
+                <li>
+                    ${cart[i].name} - $${cart[i].price}
+                    <button onclick="removeItem(${i})">Remove</button>
+                </li>
+                `;
             }
 
             totalDisplay.textContent = total;
