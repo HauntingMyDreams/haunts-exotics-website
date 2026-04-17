@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="CSS/styles.css">
 </head>
 
-<body>
+<body id="top">
 
     <header>
         <h1>Shop</h1>
@@ -30,16 +30,22 @@
             <header>
                 <h2>Your Cart</h2>
             </header>
-
+        
             <p id="empty-message">Your cart is empty.</p>
             <ul id="cart"></ul>
             <p>Total: $<span id="total">0</span></p>
-
+        
             <section class="cart-actions">
+                <header>
+                    <h3>Manage Your Cart</h3>
+                </header>
+        
                 <button onclick="clearCart()">Clear Cart</button>
-                <button>Checkout</button>
+                <a href="checkout.html" class="btn">Checkout</a>
             </section>
         </section>
+
+        <br>
 
         <!-- PRODUCTS -->
         <section>
@@ -65,20 +71,25 @@
 
                         <p><small>Local pickup only</small></p>
 
-                        <section>
-                            <p><strong>5 Count</strong> — $5</p>
-                            <button onclick="addToCart('Cubaris murina Florida Orange (5 count)', 5)">
-                                Add 5 Count
-                            </button>
-                        </section>
-
-                        <section>
-                            <p><strong>10 Count</strong> — $10</p>
-                            <button onclick="addToCart('Cubaris murina Florida Orange (10 count)', 10)">
-                                Add 10 Count
-                            </button>
-                        </section>
-
+                    <section>
+                        <header>
+                            <h4>5 Count — $5</h4>
+                        </header>
+                    
+                        <button onclick="addToCart('Cubaris murina Florida Orange (5 count)', 5)">
+                            Add to Cart
+                        </button>
+                    </section>
+                    
+                    <section>
+                        <header>
+                            <h4>10 Count — $10</h4>
+                        </header>
+                    
+                        <button onclick="addToCart('Cubaris murina Florida Orange (10 count)', 10)">
+                            Add to Cart
+                        </button>
+                    </section>
                     </article>
                 </li>
 
@@ -97,19 +108,25 @@
 
                         <p><small>Local pickup only</small></p>
 
-                        <section>
-                            <p><strong>5 Count</strong> — $5</p>
-                            <button onclick="addToCart('Cubaris murina Glacier (5 count)', 5)">
-                                Add 5 Count
-                            </button>
-                        </section>
-
-                        <section>
-                            <p><strong>10 Count</strong> — $10</p>
-                            <button onclick="addToCart('Cubaris murina Glacier (10 count)', 10)">
-                                Add 10 Count
-                            </button>
-                        </section>
+                    <section>
+                        <header>
+                            <h4>5 Count — $5</h4>
+                        </header>
+                    
+                        <button onclick="addToCart('Cubaris murina Glacier (5 count)', 5)">
+                            Add to Cart
+                        </button>
+                    </section>
+                    
+                    <section>
+                        <header>
+                            <h4>10 Count — $10</h4>
+                        </header>
+                    
+                        <button onclick="addToCart('Cubaris murina Glacier (10 count)', 10)">
+                            Add to Cart
+                        </button>
+                    </section>
 
                     </article>
                 </li>
@@ -124,24 +141,30 @@
                         <figure>
                             <img src="IMG/isopod_placeholder_500x357.avif" alt="Armadillidium peraccae isopod"
                                 loading="lazy">
-                            <figcaption>Dark slate-gray to brown coloration</figcaption>
+                            <figcaption>Slate-gray to brown</figcaption>
                         </figure>
 
                         <p><small>Local pickup only</small></p>
 
-                        <section>
-                            <p><strong>5 Count</strong> — $4</p>
-                            <button onclick="addToCart('Armadillidium peraccae (5 count)', 4)">
-                                Add 5 Count
-                            </button>
-                        </section>
-
-                        <section>
-                            <p><strong>10 Count</strong> — $8</p>
-                            <button onclick="addToCart('Armadillidium peraccae (10 count)', 8)">
-                                Add 10 Count
-                            </button>
-                        </section>
+                    <section>
+                        <header>
+                            <h4>5 Count — $4</h4>
+                        </header>
+                    
+                        <button onclick="addToCart('Armadillidium peraccae (5 count)', 4)">
+                            Add to Cart
+                        </button>
+                    </section>
+                    
+                    <section>
+                        <header>
+                            <h4>10 Count — $8</h4>
+                        </header>
+                    
+                        <button onclick="addToCart('Armadillidium peraccae (10 count)', 8)">
+                            Add to Cart
+                        </button>
+                    </section>
 
                     </article>
                 </li>
@@ -153,6 +176,7 @@
     </main>
 
     <footer>
+        <a href="#top" class="btn back-to-top">Back to Top ↑</a>
         <p>&copy; 2026 Haunts Crawlers | Local pickup only</p>
     </footer>
 
